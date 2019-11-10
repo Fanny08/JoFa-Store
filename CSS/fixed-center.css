@@ -1,0 +1,18 @@
+.fixed-center {
+	position: fixed;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	z-index: 10000;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 20px;
+	background: rgba(255,255,255,0.2);
+	transition: .3s all ease;
+}
+
+.fixed-center.bg-none{
+	background:none !important;
+}

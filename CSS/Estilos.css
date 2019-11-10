@@ -1,0 +1,37 @@
+.rounded {
+	border-radius: 15px !important;
+}
+
+body {
+	background-image: url(../Imagenes/ventas.jpg);
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+}
+
+.letra{
+	font-size: 16px;
+	font-family: Leelawadee;
+	text-align: Center;
+}	
+
+.encabezado{
+	font-size: 55px;
+	font-family: Leelawadee;
+	text-align: Center;
+}
+
+.trasparente{
+	background-color:rgba(255,255,255,0.9)!important;
+}
+
+.BGrande{
+	width: 30%;
+	margin-bottom: 20px;
+}
+
+.letmenu{
+	font-size: 20px;
+	font-family: Elephant;
+}	
