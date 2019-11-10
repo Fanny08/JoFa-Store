@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 	<head>
-		<title>JoFa Store</title>
+		<title>Hola bebe</title>
 		<?php
 			include('html-source/head.html');
 		?>
