@@ -11,7 +11,7 @@
 	<body>
 		<nav class="navbar navbar-expand-lg navbar-dark bg-light fixed-top">
 			<a class="navbar-brand" href="#">
-				<img src="../Imagenes/logo.jpg" width="250 px" height="50 px">
+				<img src="../Imagenes/logo.png" width="250 px" height="50 px">
 			</a>
 			<div class="collapse navbar-collapse" id="navbarMenu">
 			<ul class="nav">
@@ -65,7 +65,7 @@
 									</div>
 									<div class="row mb-4 shadow p-3 mb-3 ">
 										<div class="col-md-2 "><i class="fas fa-key fa-2x text-dark"></i></div>
-										<div class="col-md-10"><input type="password" class="form-control" id="CurpL" name="CurpL" placeholder="**********" required></div>
+										<div class="col-md-10"><input type="password" class="form-control" id="password" name="password" placeholder="**********" required></div>
 									</div>
 									<div class="col-md-12 "><button type="submit" class="btn btn-primary col-md-12">Iniciar Sesión</button></div>
 								</div>
@@ -75,6 +75,83 @@
 					</div>
 			</div>
 		</div>
+<script>
+jQuery(document).ready(function(){
+	$("#valida").submit(function () {
+		var Correo = $('#Usuario').val();
+		var Contra = $('#password').val();
+		var Parametros = {
+			'Usuario':Correo,
+			'password':Contra
+		};
+		$.ajax({
+			data:Parametros,
+			url:"Validacion.php",
+			type:"post",
+			success:function(datos){
+				if(datos==1){
+					swal("Error","Algunos campos esta vacios.","error");					
+				}else if(datos==2){
+					swal("Error", "Error al ejecutar la consulta.", "error");
+				}else if(datos==3){
+					swal("Error", "Verifica que tu usuario o contraseña sean correctas.", "error");
+				}else if(datos==4){
+					swal("Error", "Existen mas de 1 usuario con tus mismos datos.", "error");
+				}else if(datos==5){
+					location.href = "../index.php";						
+				}else{
+					swal("Error al inciar sesión: ", datos, "warning");
+				}
+			}
+		});
+		return false;
+	});
+});
+
+	$("#validar").submit(function(){
+		var Nom = $('#Nom').val();
+		var Email = $('#Email').val();
+		var Curp = $('#Curp').val();
+		
+		var parametros = {
+		'Nom': Nom,
+		'Email': Email,
+		'Curp': Curp
+		};
+		$.ajax({
+			data:parametros,
+			url:"PHP/Registro.php",
+			type:"post",
+			beforeSend: function(){
+				$("#loading").show();
+			},
+			success:function(datos){
+			setTimeout(function(){	
+			$("#loading").hide();
+			}, 1000);
+				if(datos==1){
+					swal("Error", "Usuario o Curp ya registrados.", "error");
+				}else if(datos==2){
+					swal("Error", "Se ha superado el numero de registros.", "warning");
+				}else if(datos==3){
+					swal("Exito","Correo de registro enviado","success");
+				}else if(datos==4){
+					swal("Error","Correo de registro no enviado","error");
+				}else if(datos==5){
+					swal("Error","No se ejecuto la consulta","warning");
+				}else if(datos==6){
+					swal("Error","Algunos campos están vacios","warning");
+				}else if(datos==7){
+					swal("Error","El curp no pudo ser validado, verifica que sea el correcto.","warning");
+				}else{
+					swal("Error",datos,"warning");
+				}
+			}
+		});
+
+		return false;
+	});
+</script>
 
 </body>
 </html>
