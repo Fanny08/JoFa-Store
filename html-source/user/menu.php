@@ -21,11 +21,11 @@
 			</ul>
 			<ul class="nav justify-content-end">
 				<li class="nav-item dropdown letmenu">
-					<a class="nav-link" href="regini.php">Registrate</a>
+					<a class="nav-link" href="registro.php">Registrate</a>
 				</li>
 				
 				<li class="nav-item dropdown letmenu">
-					<a class="nav-link" href="regini.php">Ingresa</a>
+					<a class="nav-link" href="login.php">Ingresa</a>
 				</li>
 			</ul>
 			    <form class="form-inline my-2 my-lg-0">
