@@ -1,7 +1,14 @@
+<?php
+session_start();
+if($_SESSION["inicio"]==false){
+	echo'Necesitas un usuario para continuar.';
+	header('Location:regini.php');
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 	<head>
-		<title>Hola bebe</title>
+		<title>JoFa Store</title>
 		<?php
 			include('html-source/head.html');
 		?>

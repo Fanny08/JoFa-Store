@@ -3,7 +3,7 @@
 			  <span class="navbar-toggler-icon"></span>
 			</button>
 			<a class="navbar-brand" href="#">
-				<img src="../Imagenes/logo.jpg" width="250 px" height="50 px">
+				<img src="../Imagenes/logo.png" width="250 px" height="50 px">
 			</a>
 		    <div class="collapse navbar-collapse" id="navbarMenu">
 			<ul class="nav">
@@ -29,7 +29,7 @@
 				</li>
 			</ul>
 			    <form class="form-inline my-2 my-lg-0">
-					
+					<a href="CerrarSesion.php"><img src="../Imagenes/off.png" width="50 px" height="50 px"></a>
 				</form>
 			 </div>
 			 </nav>
