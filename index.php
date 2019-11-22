@@ -2,7 +2,7 @@
 session_start();
 if($_SESSION["inicio"]==false){
 	echo'Necesitas un usuario para continuar.';
-	header('Location:regini.php');
+	header('Location:registro.php');
 }
 ?>
 <!DOCTYPE html>
