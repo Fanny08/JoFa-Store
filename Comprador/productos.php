@@ -3,13 +3,13 @@
 	<head>
 		<title>JoFa Store</title>
 		<?php
-			include('../html-source/user/head.html');
+			include('../html-source/comprador/head.html');
 		?>
 	</head>
 	<Body>
 
 		<?php
-			include('../html-source/user/menu.php');
+			include('../html-source/comprador/menu.php');
 		?>	
 		<div class="container">
 			<div class="col-md-12 mt-5"></div>
@@ -18,7 +18,7 @@
 					<div class="row">
 					<div class="col-md-2"></div>
 						<div class="col-md-8 shadow-lg p-3 mb-3 trasparente rounded">
-							<div class="col-md-12 text-center mb-4 encabezado">COMPRA</div>
+							<div class="col-md-12 text-center mb-4 encabezado">PRODUCTOS</div>
 							<div class="col-md-12 text-center mb-4 encabezado"></div>
 							<div class="col-md-12" id="preguntas"></div>
 							<div class="row mb-2">
