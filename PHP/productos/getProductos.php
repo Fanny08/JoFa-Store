@@ -8,7 +8,8 @@ $consultaSQL = $conexion -> query("
 		Nombre,
 		Precio,
 		Descripcion,
-		Stock
+		Stock,
+		Imagen
 			FROM
 				Productos
 ");
@@ -38,13 +39,14 @@ if($consultaSQL){
 			array_push($categorias, $rew['Nombre']);
 		}
 		
-		$obj -> Producto[] =
+		$obj -> productos[] =
 		[
 			"id" => $idProducto,
 			"nombre" => $raw['Nombre'],
 			"precio" => $raw['Precio'],
 			"descripcion" => $raw['Descripcion'],
 			"stock" => $raw['Stock'],
+			"imagen" => $raw['Imagen'],
 			"categorias" => $categorias
 		];		
 	}
