@@ -4,30 +4,14 @@
 	<head>
 		<title>JoFa Store</title>
 			<?php
-			include('../html-source/user/head.html');
+			include('html-source/head.html');
 			?>
 	</head>
 	
 	<body>
-		<nav class="navbar navbar-expand-lg navbar-dark bg-light fixed-top">
-			<a class="navbar-brand" href="#">
-				<img src="../Imagenes/logo.jpg" width="250 px" height="50 px">
-			</a>
-			<div class="collapse navbar-collapse" id="navbarMenu">
-			<ul class="nav">
-				<li class="nav-item letmenu">
-				  <a class="nav-link active" href="../index.php">Inicio</a>
-				</li>
-				
-				<li class="nav-item dropdown letmenu">
-					<a class="nav-link active" href="productos.php">Productos</a>
-				</li>
-				
-				<li class="nav-item dropdown">
-					<a href="ventas.php"><img src="../Imagenes/cart.png" width="45 px" height="45 px"></a>
-				</li>
-			</ul>
-		</nav>
+	<?php
+		include('html-source/menu.php');
+	?>
 		<div class="container">
 			<div class="col-md-12 mt-5"></div>
 			<div class="row mt-5">
@@ -48,6 +32,43 @@
 				</form>
 			</div>
 		</div>
-<script src="../JS/form-3d.js"></script>
+<script src="JS/form-3d.js"></script>
+<script>
+jQuery(document).ready(function(){
+	$("#login").submit(function () {
+		var Correo = $('#correo').val();
+		var Contra = $('#contraseña').val();
+		var Parametros = {
+			'Usuario':Correo,
+			'password':Contra
+		};
+		$.ajax({
+			data:Parametros,
+			url:"PHP/Validacion.php",
+			type:"post",
+			success:function(datos){
+				if(datos==1){
+				swal("Error","Algunos campos esta vacios.","error");
+				}else if(datos==2){
+					swal("Error", "Error al ejecutar la consulta.", "error");
+				}else if(datos==3){
+					swal("Error", "Verifica que tu usuario o contraseña sean correctas.", "error");
+				}else if(datos==4){
+					swal("Error", "Existen mas de 1 usuario con tus mismos datos.", "error");
+				}else if(datos==5){
+					location.href = "Comprador/productos.php";					
+				}else{
+					swal("Error al inciar sesión: ", datos, "warning");
+				}
+			}
+		});
+		return false;
+	});
+});
+</script>
+<script>
+$("#menu-reg").remove();
+$("#menu-ing").remove();
+</script>
 </body>
 </html>

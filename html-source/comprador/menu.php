@@ -7,25 +7,25 @@
 			</a>
 		    <div class="collapse navbar-collapse" id="navbarMenu">
 			<ul class="nav">
-				<li class="nav-item letmenu">
+				<li class="nav-item letmenu" id="menu-ini">
 				  <a class="nav-link active" href="../index.php">Inicio</a>
 				</li>
 				
-				<li class="nav-item dropdown letmenu">
+				<li class="nav-item dropdown letmenu" id="menu-prod">
 					<a class="nav-link active" href="productos.php">Productos</a>
 				</li>
 				
-				<li class="nav-item dropdown">
+				<li class="nav-item dropdown" id="menu-vent">
 					<a href="ventas.php"><img src="../Imagenes/cart.png" width="45 px" height="45 px"></a>
 				</li>
 			</ul>
 			<ul class="nav justify-content-end">
-				<li class="nav-item dropdown letmenu">
-					<a class="nav-link" href="registro.php">Registrate</a>
+				<li class="nav-item dropdown letmenu" id="menu-reg">
+					<a class="nav-link" href="../registro.php">Registrate</a>
 				</li>
 				
-				<li class="nav-item dropdown letmenu">
-					<a class="nav-link" href="login.php">Ingresa</a>
+				<li class="nav-item dropdown letmenu" id="menu-ing">
+					<a class="nav-link" href="../login.php">Ingresa</a>
 				</li>
 			</ul>
 			    <form class="form-inline my-2 my-lg-0">
