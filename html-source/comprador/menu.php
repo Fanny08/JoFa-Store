@@ -29,7 +29,7 @@
 				</li>
 			</ul>
 			    <form class="form-inline my-2 my-lg-0">
-					
+					<a href="CerrarSesion.php"><img src="../Imagenes/off.png" width="50 px" height="50 px"></a>
 				</form>
 			 </div>
 			 </nav>

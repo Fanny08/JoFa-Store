@@ -37,28 +37,23 @@ jQuery(document).ready(function(){
 		dataType: 'json',
 		success:function(datos)
 		{
-			if(datos.Total != 0)
+			for(var i=0; i<datos.productos.length; i++)
 			{
-				totPreguntas = datos.Total;
-				for(var i=0; i<datos.Total; i++)
-				{
-					$('#product').append(
-						'<div class="col-md-4 text-center mb-4">'+
-							'<div class="card" style="width: 18rem;">'+
-								'<img src="..." class="card-img-top" alt="...">'+
-								'<div class="card-body">'+
-									'<h5 class="card-title">Card title</h5>'+
-									'<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>'+
-									'<p class="card-text">Some quick example text to build on the card title and make up the bulk of the cards content.</p>'+
-									'<a href="#" class="card-link">Card link</a>'+
-									'<a href="#" class="card-link">Another link</a>'+
-								'</div>'+
+				$('#product').append(
+					'<div class="col-md-4 text-center mb-4">'+
+						'<div class="card" style="width: 18rem;">'+
+							'<img src="'+datos.productos[i].imagen+'" class="card-img-top" alt="'+datos.productos[i].nombre+'">'+
+							'<div class="card-body">'+
+								'<h5 class="card-title">'+datos.productos[i].nombre+'</h5>'+
+								'<h6 class="card-subtitle mb-2 text-muted">'+datos.productos[i].categorias+'</h6>'+
+								'<p class="card-text">'+datos.productos[i].descripcion+'</p>'+
+								'<a href="#" class="card-link">Ver Comentarios</a>'+
+								'<a href="#" class="card-link">Comprar</a>'+
 							'</div>'+
-						'</div>'
-					);
-				}
+						'</div>'+
+					'</div>'
+				);
 			}
-					
 		}
 		
 	});

@@ -1,3 +1,10 @@
+<?php
+session_start();
+if($_SESSION["inicio"]==false){
+	echo'Necesitas un usuario para continuar.';
+	header('Location:registro.php');
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 	<head>
