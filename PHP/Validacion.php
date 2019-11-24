@@ -24,6 +24,7 @@ if(vacio($User) && vacio($Contra)){
 				$_SESSION["Telefono"] = $fila['Telefono']; //Le asignamos a la variable de sesion 'Telefono' el valor de Telefono de la base de datos
 				$_SESSION["Direccion"] = $fila['Direccion']; //Le asignamos a la variable de sesion 'Direccion' el valor del Direccion de la base de datos
 				$_SESSION["Contrasena"] = $fila['Contrasena']; //Le asignamos a la variable de sesion 'Contrasena' el valor del Contrasena de la base de datos
+				$_SESSION["idUsuario"] = $fila['idUsuario']; //Le asignamos a la variable de sesion 'Contrasena' el valor del Contrasena de la base de datos
 				
 				echo'5';
 			}

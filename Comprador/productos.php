@@ -68,6 +68,7 @@ jQuery(document).ready(function(){
 			}
 		}
 	});
+	
 	$.ajax
 	({
 		url:"../PHP/productos/getProductos.php",
@@ -87,8 +88,8 @@ jQuery(document).ready(function(){
 								'<h6 class="card-subtitle mb-2 text-muted">'+datos.productos[i].categorias+'</h6>'+
 								'<p class="card-text">'+datos.productos[i].descripcion+'</p>'+
 								
-								'<a href="#" class="card-link">Carrito</a>'+
-								'<a href="#" class="card-link">Comprar</a>'+
+								'<a href="#" class="card-link carrito" data-id="'+datos.productos[i].id+'">Carrito</a>'+
+								'<a href="#" class="card-link compra" data-id="'+datos.productos[i].id+'">Comprar</a>'+
 								'<p>'+
 								'<a href="#" class="card-link">Comentarios</a>'+
 								'</p>'+
@@ -97,6 +98,54 @@ jQuery(document).ready(function(){
 					'</div>'
 				);
 			}
+			$(".card-link.carrito").click(function(){
+				var id = $(this).data("id");
+				var Parametros = {
+					'id':id
+				};
+				$.ajax
+				({
+					data:Parametros,
+					url:"../PHP/productos/Agegarcarrito.php",
+					type:"post",
+					success:function(datos)
+					{
+						if(datos==0){
+							swal("Error", "No se encontro el producto.", "error");
+						}else if(datos==1){
+							swal("Exito","Agregado al carrito.","success");
+						}else if(datos==2){
+							swal("Registrate o inicia sesión para continuar.", "warning");
+						}else{
+							swal("Error",datos,"warning");
+						}
+					}
+				});
+			});
+			$(".card-link.compra").click(function(){
+				var id = $(this).data("id");
+				var Parametros = {
+					'id':id
+				};
+				$.ajax
+				({
+					data:Parametros,
+					url:"../PHP/productos/Agegarcarrito.php",
+					type:"post",
+					success:function(datos)
+					{
+						if(datos==0){
+							swal("Error", "No se encontro el producto.", "error");
+						}else if(datos==1){
+							location.href = "ventas.php";
+						}else if(datos==2){
+							swal("Registrate o inicia sesión para continuar.", "warning");
+						}else{
+							swal("Error",datos,"warning");
+						}
+					}
+				});
+			});
 		}
 		
 	});

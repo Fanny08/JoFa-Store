@@ -11,7 +11,7 @@ body {
 }
 
 .letra{
-	font-size: 16px;
+	font-size: 25px;
 	font-family: Leelawadee;
 	text-align: Center;
 }	
@@ -35,3 +35,9 @@ body {
 	font-size: 20px;
 	font-family: Elephant;
 }	
+
+.letrascompra{
+	font-size: 18px;
+	font-family: Leelawadee;
+	text-align: center;
+}
