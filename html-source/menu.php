@@ -7,9 +7,6 @@
 	</a>
 	<div class="collapse navbar-collapse" id="navbarMenu">
 		<ul class="nav">
-			<li class="nav-item letmenu" id="menu-ini">
-				<a class="nav-link active" href="index.php">Inicio</a>
-			</li>
 				
 			<li class="nav-item dropdown letmenu" id="menu-prod">
 				<a class="nav-link active" href="Comprador/productos.php">Productos</a>

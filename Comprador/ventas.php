@@ -28,5 +28,24 @@
 			<div class="col-md-2"></div>
 		</div>
 	</div>
+<script>
+jQuery(document).ready(function(){
+	$.ajax
+	({
+		url:"../PHP/getSesion.php",
+		type:"post",
+		success:function(datos)
+		{
+			if(datos==0){
+				$("#menu-cerrarsesion").remove();
+			}else
+			{
+				$("#menu-reg").remove();
+				$("#menu-ing").remove();
+			}
+		}
+	});
+});
+</script>
 </Body>
 </html>

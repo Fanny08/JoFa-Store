@@ -7,10 +7,6 @@
 			</a>
 		    <div class="collapse navbar-collapse" id="navbarMenu">
 			<ul class="nav">
-				<li class="nav-item letmenu" id="menu-ini">
-				  <a class="nav-link active" href="../index.php">Inicio</a>
-				</li>
-				
 				<li class="nav-item dropdown letmenu" id="menu-prod">
 					<a class="nav-link active" href="productos.php">Productos</a>
 				</li>
@@ -28,8 +24,8 @@
 					<a class="nav-link" href="../login.php">Ingresa</a>
 				</li>
 			</ul>
-			    <form class="form-inline my-2 my-lg-0">
-					<a href="CerrarSesion.php"><img src="../Imagenes/off.png" width="50 px" height="50 px"></a>
+			    <form class="form-inline my-2 my-lg-0" id="menu-cerrarsesion">
+					<a href="../PHP/CerrarSesion.php"><img src="../Imagenes/off.png" width="50 px" height="50 px"></a>
 				</form>
 			 </div>
 			 </nav>

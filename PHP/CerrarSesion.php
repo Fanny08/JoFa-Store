@@ -1,6 +1,6 @@
 <?php 
 session_start();
-if($_SESSION['Usuario']){	
+if($_SESSION["inicio"]==true){	
 	session_destroy();
 	header("location:../index.php");
 }
