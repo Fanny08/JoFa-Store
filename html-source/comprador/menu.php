@@ -24,7 +24,7 @@
 					<a class="nav-link" href="../login.php">Ingresa</a>
 				</li>
 			</ul>
-			<ul class="nav">
+			<ul class="nav justify-content-end">
 				<li class="nav-item dropdown letmenu" id="menu-cerrarsesion">
 					<a href="../PHP/CerrarSesion.php"><img src="../Imagenes/off.png" width="50 px" height="50 px"></a>
 				</li>
