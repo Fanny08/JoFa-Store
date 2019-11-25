@@ -70,7 +70,7 @@ if($_SESSION["inicio"] == false){
 			}
 
 		}	
-		 $mensaje = "Hola $Usuario, Tu compra es: $PVendidos, el total de la compra es: $Total <br> Realiza tu pago en oxxo a este numero de cuenta 5514 8520 1690 2605 lo más pronto posible.";
+		 $mensaje = "Hola $Usuario, Tu compra es: $PVendidos el total de la compra es: $Total <br> Realiza tu pago en oxxo a este numero de cuenta 5514 8520 1690 2605 lo más pronto posible.";
 						if(enviarCorreo($Usuario,'Datos de pago',$mensaje,$Correo)){
 							$obj -> status[] =
 							[

@@ -13,7 +13,7 @@
 			</li>
 				
 			<li class="nav-item dropdown" id="menu-vent">
-				<a href="Comprador/ventas.php"><img src="Imagenes/cart.png" width="45 px" height="45 px"></a>
+				<a href="Comprador/ventas.php"><img src="Imagenes/carrito.png" width="45 px" height="45 px"></a>
 			</li>
 		</ul>
 		<ul class="nav justify-content-end">

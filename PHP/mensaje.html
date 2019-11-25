@@ -1,43 +1,3 @@
-<?php
-function vacio($input){		
-	$remplazado = str_replace(' ','',$input);
-	if(strlen($remplazado)!=0){
-		return true;
-	}else{
-		return false;
-	}
-}
-
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-function enviarCorreo($usuario, $titulo, $mensaje, $correo)
-{
-	require 'PHPMailer/src/Exception.php';
-	require 'PHPMailer/src/PHPMailer.php';
-	require 'PHPMailer/src/SMTP.php';
-
-	$mail = new PHPMailer(true);                              	// Passing `true` enables exceptions
-	try
-	{
-		//Server settings
-		$mail->SMTPDebug = 0;
-		$mail->isSMTP();                                    	// Set mailer to use SMTP
-		$mail->Host = 'smtp.gmail.com';
-		$mail->SMTPAuth = true;                               	// Activar SMTP Autenticacion
-		$mail->Username = 'jofastore@gmail.com';
-		$mail->Password = 'J0f4St0r3';
-		$mail->SMTPSecure = 'tls';
-		$mail->Port = 587;
-
-		//Recipients
-		$mail->setFrom('jofastore@gmail.com', "Jofa Store - $titulo");
-		$mail->addAddress("$correo","$usuario");     // Correo a enviar
-
-		//Content
-		$mail->isHTML(true);                                  // Enviar el correo con formato HTML
-		$mail->Subject = "$titulo";
-		
-		$cuerpo = "
 		<html>
 		<head>
 			<style>
@@ -81,18 +41,3 @@ function enviarCorreo($usuario, $titulo, $mensaje, $correo)
 		</body>
 
 		</html>
-		";
-		
-		
-		$mail->Body    = "$cuerpo";
-		$mail->AltBody = "Error code HTML";
-
-		$mail->send();
-		return true;
-	}
-	catch (Exception $e)
-	{
-		return false;
-	}
-}
-?>

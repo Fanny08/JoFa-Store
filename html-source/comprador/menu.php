@@ -12,7 +12,7 @@
 				</li>
 				
 				<li class="nav-item dropdown" id="menu-vent">
-					<a href="ventas.php"><img src="../Imagenes/cart.png" width="45 px" height="45 px"></a>
+					<a href="ventas.php"><img src="../Imagenes/carrito.png" width="45 px" height="45 px"></a>
 				</li>
 			</ul>
 			<ul class="nav justify-content-end">
@@ -26,7 +26,7 @@
 			</ul>
 			<ul class="nav justify-content-end">
 				<li class="nav-item dropdown letmenu" id="menu-cerrarsesion">
-					<a href="../PHP/CerrarSesion.php"><img src="../Imagenes/off.png" width="50 px" height="50 px"></a>
+					<a href="../PHP/CerrarSesion.php"><img src="../Imagenes/cerrars.png" width="50 px" height="50 px"></a>
 				</li>
 			</ul>				
 			 </div>
