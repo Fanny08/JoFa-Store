@@ -50,6 +50,8 @@ jQuery(document).ready(function(){
 		{
 			if(datos==0){
 				$("#menu-cerrarsesion").remove();
+				$("#form-comentario").empty();
+				$("#form-comentario").html('Inicia sesión para poder comentar');
 			}else
 			{
 				$("#menu-reg").remove();
@@ -158,49 +160,95 @@ jQuery(document).ready(function(){
 				return false;
 			});
 			
+
+			
 			$(".card-link.comentarios").click(function(){
 				var id = $(this).data("id");
-				var Parametros = {
-					'id':id
-				};
-				$.ajax
-				({
-					data:Parametros,
-					url:"../PHP/productos/getComentarios.php",
-					type:"post",
-					dataType: 'json',
-					beforeSend: function(){
-						$("#loading").show();
-					},
-					success:function(datos)
-					{
-						setTimeout(function(){
-						$("#loading").hide();
-						}, 1000);
-						$('#modal-contenido').html('');
-						if(datos.comentarios)
-						{
-							$('#modal-titulo').html('Comentarios');
-							for(var i=0; i<datos.comentarios.length; i++)
-							{
-								$('#modal-contenido').append
-								(
-									datos.comentarios[i].usuario +
-									': '+ datos.comentarios[i].comentario + '<br>'
-								);
-							}
-						}
-						else {
-							$('#modal-titulo').html('Sin comentarios');
-						}
-						$('#modalComentarios').modal('show');
-						
-					}
-				});
+				loadComentarios(id);
+				$('#modalComentarios').modal('show');
 				return false;
 			});
 		}
 		
+	});
+	
+	function loadComentarios(id)
+	{
+		$('#modal-contenido').html('');
+		
+		$('#input-comentario').val('');
+		
+		$('#id-producto').val(id);
+				
+		var Parametros = {
+			'id':id
+		};
+		$.ajax
+		({
+			data:Parametros,
+			url:"../PHP/productos/getComentarios.php",
+			type:"post",
+			dataType: 'json',
+			beforeSend: function(){
+				$("#loading").show();
+			},
+			success:function(datos)
+			{
+				setTimeout(function(){
+				$("#loading").hide();
+				}, 1000);
+				if(datos.comentarios)
+				{
+					$('#modal-titulo').html('Comentarios');
+					for(var i=0; i<datos.comentarios.length; i++)
+					{
+						$('#modal-contenido').append
+						(
+							datos.comentarios[i].usuario +
+							' : '+ datos.comentarios[i].comentario + '<br>'
+						);
+					}
+				}
+				else {
+					$('#modal-titulo').html('Sin comentarios');
+				}
+			}
+		});
+		return false;
+	}
+	
+	$("#form-comentario").submit(function ()
+	{
+		var id = $('#id-producto').val();
+		var comentario = $('#input-comentario').val();
+		
+		var Parametros = {
+			'id': id,
+			'comentario': comentario
+		};
+		$.ajax
+		({
+			data:Parametros,
+			url:"../PHP/productos/setComentario.php",
+			type:"post",
+			beforeSend: function(){
+				$("#loading").show();
+			},
+			success:function(datos)
+			{
+				setTimeout(function(){
+					$("#loading").hide();
+				}, 1000);
+				if(datos==1)
+				{
+					loadComentarios(id);
+					swal("Exito","Comentario guardado","success");
+				}else{
+					swal("Error","Ocurrio un error al tratar de guardar el comentario","error");
+				}
+			}
+		});
+		return false;
 	});
 });
 </script>
