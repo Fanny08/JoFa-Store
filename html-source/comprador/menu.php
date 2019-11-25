@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-light fixed-top">
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Menu">
+			<button style="border-color: #058ddf; background-color: #058ddf;" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Menu">
 			  <span class="navbar-toggler-icon"></span>
 			</button>
 			<a class="navbar-brand" href="#">
@@ -24,8 +24,10 @@
 					<a class="nav-link" href="../login.php">Ingresa</a>
 				</li>
 			</ul>
-			    <form class="form-inline my-2 my-lg-0" id="menu-cerrarsesion">
+			<ul class="nav">
+				<li class="nav-item dropdown letmenu" id="menu-cerrarsesion">
 					<a href="../PHP/CerrarSesion.php"><img src="../Imagenes/off.png" width="50 px" height="50 px"></a>
-				</form>
+				</li>
+			</ul>				
 			 </div>
 			 </nav>

@@ -10,6 +10,10 @@
 	
 	<body>
 	<?php
+		include('html-source/preloader.html');
+	?>
+	
+	<?php
 		include('html-source/menu.php');
 	?>
 		<div class="container">
@@ -32,6 +36,10 @@
 				</form>
 			</div>
 		</div>
+	<?php
+		include('html-source/js_load.html');
+	?>
+
 <script src="JS/form-3d.js"></script>
 <script>
 jQuery(document).ready(function(){
@@ -46,7 +54,13 @@ jQuery(document).ready(function(){
 			data:Parametros,
 			url:"PHP/Validacion.php",
 			type:"post",
+			beforeSend: function(){
+				$("#loading").show();
+			},
 			success:function(datos){
+				setTimeout(function(){
+				$("#loading").hide();
+				}, 1000);
 				if(datos==1){
 				swal("Error","Algunos campos esta vacios.","error");
 				}else if(datos==2){

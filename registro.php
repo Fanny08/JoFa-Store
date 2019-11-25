@@ -10,6 +10,10 @@
 	
 	<body>
 	<?php
+		include('html-source/preloader.html');
+	?>	
+	
+	<?php
 		include('html-source/menu.php');
 	?>
 		<div class="container">
@@ -44,6 +48,10 @@
 				</form>
 			</div>
 		</div>
+	<?php
+		include('html-source/js_load.html');
+	?>
+
 <script src="JS/form-3d.js"></script>
 <script>
 jQuery(document).ready(function(){
@@ -65,7 +73,13 @@ jQuery(document).ready(function(){
 			data:parametros,
 			url:"PHP/bdregistro.php",
 			type:"post",
+			beforeSend: function(){
+				$("#loading").show();
+			},
 			success:function(datos){
+				setTimeout(function(){
+				$("#loading").hide();
+				}, 1000);
 				if(datos==1){
 					swal("Error", "Usuario ya registrado.", "error");
 				}else if(datos==2){

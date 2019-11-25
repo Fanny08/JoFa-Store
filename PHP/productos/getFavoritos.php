@@ -9,6 +9,7 @@ if($_SESSION["inicio"]==false){
 
 $consultaSQL = $conexion -> query("
 	SELECT 
+	Productos.idProductos,
 	Productos.Nombre, 
 	Productos.Precio 
 		FROM Productos,

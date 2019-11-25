@@ -7,7 +7,10 @@
 		?>
 	</head>
 	<Body>
-
+	<?php
+		include('../html-source/comprador/preloader.html');
+	?>
+	
 	<?php
 		include('../html-source/comprador/menu.php');
 	?>	
@@ -29,28 +32,14 @@
 		</div>
 	</div>
 	
-	
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="modal-titulo">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body" id="modal-contenido">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>	
-	
+	<?php
+		include('../html-source/modal.html');
+	?>	
+
+	<?php
+		include('../html-source/js_load.html');
+	?>
+
 <script>
 jQuery(document).ready(function(){
 	$.ajax
@@ -74,8 +63,16 @@ jQuery(document).ready(function(){
 		url:"../PHP/productos/getProductos.php",
 		type:"post",
 		dataType: 'json',
+		beforeSend: function(){
+			setTimeout(function(){
+				$("#loading").show();
+			}, 1000);
+		},
 		success:function(datos)
 		{
+			setTimeout(function(){
+			$("#loading").hide();
+			}, 2000);
 			for(var i=0; i<datos.productos.length; i++)
 			{
 				$('#product').append(
@@ -91,7 +88,7 @@ jQuery(document).ready(function(){
 								'<a href="#" class="card-link carrito" data-id="'+datos.productos[i].id+'">Carrito</a>'+
 								'<a href="#" class="card-link compra" data-id="'+datos.productos[i].id+'">Comprar</a>'+
 								'<p>'+
-								'<a href="#" class="card-link">Comentarios</a>'+
+								'<a href="#" class="card-link comentarios" data-id="'+datos.productos[i].id+'">Comentarios</a>'+
 								'</p>'+
 							'</div>'+
 						'</div>'+
@@ -108,19 +105,26 @@ jQuery(document).ready(function(){
 					data:Parametros,
 					url:"../PHP/productos/Agegarcarrito.php",
 					type:"post",
+					beforeSend: function(){
+						$("#loading").show();
+					},					
 					success:function(datos)
 					{
+					setTimeout(function(){
+					$("#loading").hide();
+					}, 1000);			
 						if(datos==0){
 							swal("Error", "No se encontro el producto.", "error");
 						}else if(datos==1){
 							swal("Exito","Agregado al carrito.","success");
 						}else if(datos==2){
-							swal("Registrate o inicia sesión para continuar.", "warning");
+							swal("","Registrate o inicia sesión para continuar.", "warning");
 						}else{
 							swal("Error",datos,"warning");
 						}
 					}
 				});
+				return false;
 			});
 			$(".card-link.compra").click(function(){
 				var id = $(this).data("id");
@@ -132,19 +136,68 @@ jQuery(document).ready(function(){
 					data:Parametros,
 					url:"../PHP/productos/Agegarcarrito.php",
 					type:"post",
+					beforeSend: function(){
+						$("#loading").show();
+					},					
 					success:function(datos)
 					{
+						setTimeout(function(){
+						$("#loading").hide();
+						}, 1000);
 						if(datos==0){
 							swal("Error", "No se encontro el producto.", "error");
 						}else if(datos==1){
 							location.href = "ventas.php";
 						}else if(datos==2){
-							swal("Registrate o inicia sesión para continuar.", "warning");
+							swal("","Registrate o inicia sesión para continuar.", "warning");
 						}else{
 							swal("Error",datos,"warning");
 						}
 					}
 				});
+				return false;
+			});
+			
+			$(".card-link.comentarios").click(function(){
+				var id = $(this).data("id");
+				var Parametros = {
+					'id':id
+				};
+				$.ajax
+				({
+					data:Parametros,
+					url:"../PHP/productos/getComentarios.php",
+					type:"post",
+					dataType: 'json',
+					beforeSend: function(){
+						$("#loading").show();
+					},
+					success:function(datos)
+					{
+						setTimeout(function(){
+						$("#loading").hide();
+						}, 1000);
+						$('#modal-contenido').html('');
+						if(datos.comentarios)
+						{
+							$('#modal-titulo').html('Comentarios');
+							for(var i=0; i<datos.comentarios.length; i++)
+							{
+								$('#modal-contenido').append
+								(
+									datos.comentarios[i].usuario +
+									': '+ datos.comentarios[i].comentario + '<br>'
+								);
+							}
+						}
+						else {
+							$('#modal-titulo').html('Sin comentarios');
+						}
+						$('#modalComentarios').modal('show');
+						
+					}
+				});
+				return false;
 			});
 		}
 		
