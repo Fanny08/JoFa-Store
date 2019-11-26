@@ -10,7 +10,13 @@
       </div>
       <div class="modal-body" id="modal-contenido"></div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" id="modal-comentar" data-dismiss="modal">Publicar</button>
+		<form id="form-comentario" class="form-inline col-md-12">
+		  <div class="form-group col-md-9 mx-sm-1 mb-2">
+			<input type="text" class="form-control col-md-12" id="input-comentario" placeholder="Ingresa tu comentario" required>
+			<input type="hidden" id="id-producto" value="">
+		  </div>
+		  <button type="submit" class="btn btn-primary mb-2">Agregar</button>
+		</form>
       </div>
     </div>
   </div>
