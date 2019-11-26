@@ -82,6 +82,10 @@ if($_SESSION["inicio"] == false){
 								"code" => 2
 							];
 						}
+						$obj -> compra[] =
+						[
+							"total" => $Total
+						];
 		echo json_encode($obj);	
 	}
 }
