@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-light fixed-top">
-	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Menu">
+	<button style="border-color: #058ddf; background-color: #058ddf;" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Menu">
 		<span class="navbar-toggler-icon"></span>
 	</button>
 	<a class="navbar-brand" href="#">

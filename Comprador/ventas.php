@@ -31,14 +31,15 @@ if($_SESSION["inicio"]==true){
 				<div class="col-md-12 shadow-lg p-3 mb-3 trasparente rounded">
 				<div class="col-md-12 text-center mb-4 encabezado">Detalles de la compra</div>
 				<div class="row">	
-				<div class="col-md-6 text-center mb-4">
+				<div class="col-md-4 text-center mb-4">
 					<div class="col-md-12 text-center mb-4 letra">
 						Productos:
 					</div>
 					<div class="letrascompra" id="compra">
+						<button class="delete" data-idcookie="0"><i class="fa fa-close"></i></button>
 					</div>
 				</div>
-				<div class="col-md-6 text-center mb-4">
+				<div class="col-md-4 text-center mb-4">
 					<div class="col-md-12 text-center mb-4 letra">
 						Datos del usuario:
 					</div>
@@ -47,6 +48,14 @@ if($_SESSION["inicio"]==true){
 					<p class="letrascompra">Telefono: <?php echo $_SESSION["Telefono"];?></p>
 					<p class="letrascompra">Dirección: <?php echo $_SESSION["Direccion"];?></p>
 				</div>
+				<div class="col-md-4 text-center mb-4">
+					<div class="col-md-12 text-center mb-4 letra">
+						Pago y envío:
+					</div>
+					<p class="letrascompra">
+						Realiza tu pago en oxxo a este numero de cuenta 5514 8520 1690 2605 lo más pronto posible, los producto llegaran a tu domicilio 2 dias despues de tu pago.
+					</p>
+				</div>				
 					<div class="col-md-12 text-center mb-4 letra" id="compra_total"></div>
 					<div class="col-md-4"></div>
 					<div class="col-md-4"><button type="submit" class="btn btn-primary col-md-12 letra" id="btn-compra">Comprar</button></div>
@@ -123,7 +132,7 @@ jQuery(document).ready(function(){
 						}, 1000);						
 						var PFaltantes = 0;
 						var PVendidos = 0;
-						$('#compra').html('');
+						$('#compra').a('');
 						if(datos.faltantes)
 						{
 							PFaltantes = datos.faltantes.length;
@@ -157,7 +166,7 @@ jQuery(document).ready(function(){
 							swal("","Algunos productos tienen faltantes, los detalles de la compra se enviaron a tu correo..", "warning");
 							}
 							else{
-								swal("","Algunos productos tienen faltantes, Realiza tu pago en oxxo a este numero de cuenta 5514 8520 1690 2605 lo más pronto posible.", "warning");
+								swal("","Algunos productos tienen faltantes, Realiza tu pago en oxxo a este numero de cuenta 5514 8520 1690 2605 lo más pronto posible, los producto llegaran a tu domicilio 2 dias despues de tu pago.", "warning");
 							}
 						}
 					}
