@@ -9,6 +9,7 @@ if($_SESSION["inicio"]==false){
 
 $consultaSQL = $conexion -> query("
 	SELECT 
+	Favoritos.idFavoritos,
 	Productos.idProductos,
 	Productos.Nombre, 
 	Productos.Precio 
@@ -28,6 +29,7 @@ if($consultaSQL){
 		
 		$obj -> productos[] =
 		[
+			"idfavorito" => $raw['idFavoritos'],
 			"nombre" => $raw['Nombre'],
 			"precio" => $raw['Precio']
 		];		
